@@ -9,6 +9,22 @@ struct CountsByUsage {
 
 struct CountsByUsage countBatteriesByUsage(const int* cycles, int nBatteries) {
   struct CountsByUsage counts = {0, 0, 0};
+  int i;
+  for(i=0;i<nBatteries;i++)
+  {
+    if(cycles[i]<400)
+    {
+      counts.lowCount++;
+    }
+    else if( cycles[i]>=400 && cycles[i]<=919)
+    {
+      counts.mediumCount++;
+    }
+    else
+    {
+      counts.highCount++;
+    }
+  }
   return counts;
 }
 
